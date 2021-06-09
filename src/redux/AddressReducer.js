@@ -50,7 +50,7 @@ export function updateAddressAction(payload) {
     });
 
     // update the ui.
-    dispatch(updateRefADDRESS({}));
+    dispatch(updateRefAddress({}));
   };
 }
 
@@ -97,12 +97,12 @@ export function getByIdAddressAction(payload) {
   };
 }
 
-export function updateRefADDRESS(payload) {
+export function updateRefAddress(payload) {
   return { type: REF_ADDRESS, payload: payload };
 }
 
 // REDUCER LOGIC
-export function ADDRESSReducer(state = initState, action) {
+export function AddressReducer(state = initState, action) {
   switch (action.type) {
     case ADDRESS_CREATE:
       return { ...state, list: [action.payload, ...state.list] };
