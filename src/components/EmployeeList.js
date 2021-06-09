@@ -48,10 +48,6 @@ export function EmployeeList() {
         <div className="col-12 col-md-8">
           <h3 className="alert alert-secondary">Employee List</h3>
 
-          {state.employee.error && (
-            <div className="alert alert-danger">Sever is offline</div>
-          )}
-
           {successOperation && (
             <div className="alert alert-success">Opeation Success</div>
           )}
@@ -60,10 +56,11 @@ export function EmployeeList() {
             <thead className="thead-dark">
               <tr>
                 <th scope="col">#ID</th>
-                <th scope="col">USERNAME</th>
-                <th scope="col">PASSWORD</th>
+                <th scope="col">FIRSTNAME</th>
+                <th scope="col">LASTNAME</th>
                 <th scope="col">EMAIL</th>
-                <th scope="col">MOBILE</th>
+                <th scope="col">MOBILENUMBER</th>
+                <th scope="col">GENDER</th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>
@@ -71,10 +68,11 @@ export function EmployeeList() {
               {[...state.employee.list].map((item, index) => (
                 <tr key={index}>
                   <th scope="row">{item.id}</th>
-                  <td>{item.userName}</td>
-                  <td>{"********"}</td>
+                  <td>{item.firstName}</td>
+                  <td>{item.lastName}</td>
                   <td>{"****@gmail.com"}</td>
-                  <td>{item.mobile}</td>
+                  <td>{item.mobileNumber}</td>
+                  <td>{item.gender}</td>
                   <td>
                     <input
                       type="button"

@@ -13,24 +13,15 @@ export function EmployeeModal() {
   return (
     <Modal show={state.employee.refemp.id} onHide={() => updateRefObj()}>
       <Modal.Header closeButton>
-        <Modal.Title>Hello, {state.employee.refemp.userName}</Modal.Title>
+        <Modal.Title>Hello, {state.employee.refemp.firstName}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <ListGroup>
-          <ListGroup.Item>
-            First Name - {state.employee.refemp.firstName}
-          </ListGroup.Item>
-          <ListGroup.Item>
-            Last Name - {state.employee.refemp.lastName}
-          </ListGroup.Item>
-          <ListGroup.Item>
-            User Name - {state.employee.refemp.userName}
-          </ListGroup.Item>
-          <ListGroup.Item>Password - {"*********"}</ListGroup.Item>
+          <ListGroup.Item> First Name - {state.employee.refemp.firstName} </ListGroup.Item>
+          <ListGroup.Item> Last Name - {state.employee.refemp.lastName}</ListGroup.Item>
           <ListGroup.Item>Email - {"******@gmail.com"}</ListGroup.Item>
-          <ListGroup.Item>
-            Mobile - {state.employee.refemp.mobile}
-          </ListGroup.Item>
+          <ListGroup.Item> Mobile Number- {state.employee.refemp.mobileNumber}</ListGroup.Item>
+          <ListGroup.Item> GENDER- {state.employee.refemp.gender}</ListGroup.Item>
         </ListGroup>
       </Modal.Body>
       <Modal.Footer>

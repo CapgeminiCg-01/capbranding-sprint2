@@ -2,8 +2,6 @@ const initState = {
   list: [],
 
   refemp: {},
-  error: false,
-
   sampleList: ["Delhi", "Kolkata", "Chennai", "Mumbai"],
 };
 
@@ -13,7 +11,6 @@ const EMPLOYEE_UPDATE = "EMPLOYEE_UPDATE";
 const EMPLOYEE_DELETE = "EMPLOYEE_DELETE";
 const EMPLOYEE_GET_ALL = "EMPLOYEE_GET_ALL";
 const EMPLOYEE_GET_BY_ID = "EMPLOYEE_GET_BY_ID";
-const SERVER_ERROR = "SERVER_ERROR";
 
 const REF_EMPLOYEE = "REF_EMPLOYEE";
 
@@ -25,7 +22,7 @@ export function createEmployeeAction(payload) {
   return async (dispatch) => {
     // WE HV TO CALL THE SPRINT1 / SPRING BOOT
     const url = "http://localhost:8080/api/employee/";
-    const requestBody = { ...payload, age: 30 };
+    const requestBody = { ...payload};
 
     // HTTP Client
     await fetch(url, {
@@ -44,7 +41,7 @@ export function updateEmployeeAction(payload) {
   return async (dispatch) => {
     // WE HV TO CALL THE SPRINT1 / SPRING BOOT
     const url = `http://localhost:8080/api/employee/${payload.id}`;
-    const requestBody = { ...payload, age: 25 };
+    const requestBody = { ...payload };
 
     await fetch(url, {
       method: "PUT",
@@ -75,28 +72,16 @@ export function getAllEmployeeAction(payload) {
 
   // API CALL/BACKEND CALL / REDUX-THUNK IS THERE
   return async (dispatch) => {
-    try {
-      // WE HV TO CALL THE SPRINT1 / SPRING BOOT
-      const url = "http://localhost:8080/api/employee/";
+    // WE HV TO CALL THE SPRINT1 / SPRING BOOT
+    const url = "http://localhost:8080/api/employee/";
 
-      // HTTP Client / POSTMAN / SWAGGER
-      const response = await fetch(url);
-      const employeList = await response.json();
-      console.log(employeList);
+    // HTTP Client / POSTMAN / SWAGGER
+    const response = await fetch(url);
+    const employeList = await response.json();
+    console.log(employeList);
 
-      // we are getting the data server
-      localStorage.setItem("employeList", JSON.stringify(employeList));
-
-      // Update the UI
-      dispatch({ type: EMPLOYEE_GET_ALL, payload: employeList });
-    } catch (error) {
-      console.log(error);
-      dispatch({ type: SERVER_ERROR, payload: true });
-
-      const localEmployeeStringList = localStorage.getItem("employeList");
-      const localEmployeeList = JSON.parse(localEmployeeStringList);
-      dispatch({ type: EMPLOYEE_GET_ALL, payload: localEmployeeList });
-    }
+    // Update the UI
+    dispatch({ type: EMPLOYEE_GET_ALL, payload: employeList });
   };
 }
 
@@ -141,8 +126,6 @@ export function EmployeeReducer(state = initState, action) {
     case REF_EMPLOYEE:
       return { ...state, refemp: action.payload };
 
-    case SERVER_ERROR:
-      return { ...state, error: action.payload };
     default:
       return state;
   }
