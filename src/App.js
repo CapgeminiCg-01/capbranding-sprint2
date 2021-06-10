@@ -3,7 +3,10 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import { Nav, Navbar } from "react-bootstrap";
 import { AppNavBar } from "./common/AppNavBar";
-import { AppNavBar2} from "./common/AppNavBar2";
+import { AddressUpsert } from "./components/AddressUpsert";
+import { AddressList } from "./components/AddressList";
+import { CartUpsert } from "./components/CartUpsert";
+import { CartList } from "./components/CartList";
 
 function App() {
   return (
