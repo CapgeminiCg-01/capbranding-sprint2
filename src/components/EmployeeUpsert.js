@@ -1,5 +1,4 @@
-
-import {  useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {
@@ -10,7 +9,6 @@ import {
 export function EmployeeUpsert() {
   const dispatch = useDispatch();
   const history = useHistory();
-
   const state = useSelector((state) => state);
   console.log(state);
 
@@ -32,7 +30,6 @@ export function EmployeeUpsert() {
   const addEmployee = (e) => {
     e.preventDefault();
     console.log(firstName, lastName, email, mobileNumber, gender);
-      
 
     // THIS IS REDUX ACTION CALLING
     dispatch(
