@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 export function AppNavBar() {
   return (
-    <Navbar bg="info" expand="lg" variant="dark">
+    <container-fluid>
+    <Navbar sticky ="top" bg="danger" expand="lg" variant="dark">
       
       <Navbar.Brand as={Link} to="/">HOME
       </Navbar.Brand>
@@ -30,8 +31,8 @@ export function AppNavBar() {
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>
-
-   
    </Navbar>
+   </container-fluid>
+
   );
 }

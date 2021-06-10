@@ -38,12 +38,12 @@ function App() {
           style={{
             height: "100vh",
             fontSize: "50px",
-            backgroundColor: "#d9ecd0",
+            backgroundColor: "#b2ebf2",
           }}
         >
-          <div className="col d-flex justify-content-center align-items-center">
+          <div className="col d-flex justify-content-center align-items-center" >
             <Route exact path="/">
-              Welcome To CapBrandingStore
+             <h1 class="text-dark"> Welcome To CapBrandingStore </h1>
             </Route>
             </div>
         </div>

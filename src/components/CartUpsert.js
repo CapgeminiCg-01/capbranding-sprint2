@@ -71,7 +71,7 @@ export function CartUpsert() {
   };
 
   return (
-    <div style={{ height: "100vh", backgroundColor: "#d9ecd0" }}>
+    <div style={{ height: "100vh", backgroundColor: "#fff9c4" }}>
     <div className="row">
       <div className="col-3 col-md-3 d-none d-md-block"></div>
       <div className="col-12 col-md-6">
