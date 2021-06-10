@@ -1,43 +1,46 @@
-import logo from "./logo.svg";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import { Nav, Navbar } from "react-bootstrap";
-import { AppNavBar } from "./common/AppNavBar";
-import { AppNavBar2} from "./common/AppNavBar2";
 
+import { Product } from "./components/Product";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { AppNavBar } from "./common/AppNavBar";
+import { UserLogin } from "./components/UserLogin";
+import { AdminLogin } from "./components/AdminLogin";
+import { HomePage } from "./modules/HomePage";
+import { Registration } from "./components/Registration";
+import { Registration } from "./components/Registration";
+
+import { User } from "./components/User";
+import { Admin } from "./components/Admin";
+
+// vehicle
 function App() {
   return (
-    <Router>
-      <AppNavBar />
-
-      <Switch>
-        <Route path="/create-address">
-          <AddressUpsert />
-        </Route>
-
-        <Route path="/list-address">
-          <AddressList />
-        </Route>
-
-        <Route exact path="/">
-          <AddressList />
-        </Route>
-      </Switch>
-
-      <Switch>
-        <Route path="/create-cart">
-          <CartUpsert />
-        </Route>
-
-        <Route path="/list-cart">
-          <CartList />
-        </Route>
-
-        <Route exact path="/">
-          <CartList />
-        </Route>
-      </Switch>
-    </Router>
+    <div className="body" style={{ height: "100vh" }}>
+      <Router>
+        {/** */}
+        <Switch>
+          <Route path="/" exact>
+            <HomePage />
+          </Route>
+          <Route path="/employeelogin" exact>
+            <UserLogin />
+          </Route>
+          <Route path="/adminlogin" exact>
+            <AdminLogin />
+          </Route>
+          <Route path="/address" exact>
+            <Address />
+          </Route>
+          <Route path="/register" exact>
+            <Registration />
+          </Route>
+          <Route path="/cart" exact>
+            <Cart />
+          </Route>
+         
+        </Switch>
+      </Router>
+    </div>
   );
 }
 
