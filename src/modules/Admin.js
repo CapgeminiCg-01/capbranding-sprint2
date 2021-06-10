@@ -8,7 +8,7 @@ export function Admin() {
       <div className="row m-3"></div>
       <div className="row m-3"></div>
       <div className="row m-3"></div>
-      <div className="row">
+      <div className="row"> 
         <div className="col-4 col-md-4 d-none d-md-block"></div>
         <div className="col-12 col-md-4 ">
           <div className="">
