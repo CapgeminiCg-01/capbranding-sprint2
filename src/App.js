@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import { Nav, Navbar } from "react-bootstrap";
 import { AppNavBar } from "./common/AppNavBar";
+import { EmployeeUpsert } from "./components/EmployeeUpsert";
+import { EmployeeList } from "./components/EmployeeList";
 import { AddressUpsert } from "./components/AddressUpsert";
 import { AddressList } from "./components/AddressList";
 import { CartUpsert } from "./components/CartUpsert";
@@ -12,6 +14,20 @@ function App() {
   return (
     <Router>
       <AppNavBar />
+
+      <Switch>
+        <Route path="/create-employee">
+          <EmployeeUpsert />
+        </Route>
+
+        <Route path="/list-employee">
+          <EmployeeList />
+        </Route>
+
+        <Route exact path="/">
+          <EmployeeList />
+        </Route>
+      </Switch>
 
       <Switch>
         <Route path="/create-address">
@@ -26,7 +42,7 @@ function App() {
           <AddressList />
         </Route>
       </Switch>
-
+ 
       <Switch>
         <Route path="/create-cart">
           <CartUpsert />

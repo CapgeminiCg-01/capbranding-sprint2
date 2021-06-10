@@ -3,12 +3,15 @@ import { applyMiddleware } from "redux";
 import { createStore } from "redux";
 import thunk from "redux-thunk";
 
+import { EmployeeReducer } from "./EmployeeReducer";
 import { AddressReducer } from "./AddressReducer";
 import { CartReducer } from "./CartReducer";
 
 const rootReducer = combineReducers({
+  employee : EmployeeReducer,
   address: AddressReducer,
   cart : CartReducer,
+  
   // depart : DepartRducer,
   //vechil: VechuileReucer
 });
