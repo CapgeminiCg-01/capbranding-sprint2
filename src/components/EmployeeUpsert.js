@@ -1,4 +1,4 @@
-import { Form,yup, useRef, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {
@@ -9,7 +9,6 @@ import {
 export function EmployeeUpsert() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const formEL = useRef();
   const state = useSelector((state) => state);
   console.log(state);
 
@@ -32,48 +31,9 @@ export function EmployeeUpsert() {
     e.preventDefault();
     console.log(firstName, lastName, email, mobileNumber, gender);
     
-    console.log(formEL);
-    console.log(formEL.current.checkValidity());
+  
 
-    if (formEL.current.checkValidity() === false) {
-      alert("Syntax Error");
-      // handlee the false case
-      e.preventDefault();
-      e.stopPropagation();
-      formEL.current.classList.add("was-validated");
-    } else {
-      // you can write custom valiadation logic here.
-      // username :: Speical Character validation
-      
-      const re = /^[0-9_\.]+$/
-      if (re.test(firstName)) {
-        alert("First Name Validation Fails");
-        return;
-      }
-    }
-
-     const schema = yup.object().shape({
-        firstName: yup.string().required(),
-        lastName: yup.string().required(),
-        email : yup.string().required(),
-        mobileNumber : yup.string().required(),
-        gender : yup.string().required(),
-      });
-      
-      function Validation() {
-        return (
-          <Form
-            validationSchema={schema}
-            onSubmit={console.log}
-            initialValues={{
-              firstName: '',
-              lastName: '',
-              email: '',
-              mobileNumber : '',
-              gender : '',
-            }}></Form>
-         ) }
-
+  
     // THIS IS REDUX ACTION CALLING
     dispatch(
       createEmployeeAction({
