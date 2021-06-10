@@ -5,6 +5,7 @@ import { AddressUpsert } from "./components/AddressUpsert";
 import { AddressList } from "./components/AddressList";
 import { Nav, Navbar } from "react-bootstrap";
 import { AppNavBar } from "./common/AppNavBar";
+import {Address} from "./modules/Address";
 
 function App() {
   return (
@@ -12,11 +13,11 @@ function App() {
       <AppNavBar />
 
       <Switch>
-        <Route path="/create-address">
-          <AddressUpsert />
+        <Route path="/Address">
+         
         </Route>
 
-        <Route path="/list-address">
+        <Route path="/">
           <AddressList />
         </Route>
 
