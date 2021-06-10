@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import { Nav, Navbar } from "react-bootstrap";
 import { AppNavBar } from "./common/AppNavBar";
-import { EmployeeUpsert } from "./components/EmployeeUpsert";
-import { EmployeeList } from "./components/EmployeeList";
 import { AddressUpsert } from "./components/AddressUpsert";
 import { AddressList } from "./components/AddressList";
 import { CartUpsert } from "./components/CartUpsert";
@@ -13,23 +11,12 @@ import { CartList } from "./components/CartList";
 function App() {
   return (
     <Router>
+      <div className="sticky-top"></div>
       <AppNavBar />
+       
 
       <Switch>
-        <Route path="/create-employee">
-          <EmployeeUpsert />
-        </Route>
 
-        <Route path="/list-employee">
-          <EmployeeList />
-        </Route>
-
-        <Route exact path="/">
-          <EmployeeList />
-        </Route>
-      </Switch>
-
-      <Switch>
         <Route path="/create-address">
           <AddressUpsert />
         </Route>
@@ -37,13 +24,7 @@ function App() {
         <Route path="/list-address">
           <AddressList />
         </Route>
-
-        <Route exact path="/">
-          <AddressList />
-        </Route>
-      </Switch>
- 
-      <Switch>
+        
         <Route path="/create-cart">
           <CartUpsert />
         </Route>
@@ -52,9 +33,20 @@ function App() {
           <CartList />
         </Route>
 
-        <Route exact path="/">
-          <CartList />
-        </Route>
+        <div
+          className="row"
+          style={{
+            height: "100vh",
+            fontSize: "50px",
+            backgroundColor: "#d9ecd0",
+          }}
+        >
+          <div className="col d-flex justify-content-center align-items-center">
+            <Route exact path="/">
+              Welcome To CapBrandingStore
+            </Route>
+            </div>
+        </div>
       </Switch>
     </Router>
   );

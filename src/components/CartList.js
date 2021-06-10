@@ -43,6 +43,7 @@ export function CartList() {
 
   return (
     <>
+     <div style={{ height: "100vh", backgroundColor: "#d9ecd0" }}>
       <div className="row">
         <div className="col-3 col-md-2 d-none d-md-block"></div>
         <div className="col-12 col-md-8">
@@ -53,7 +54,7 @@ export function CartList() {
           )}
 
           <table className="table">
-            <thead className="thead-dark">
+            <thead className="bg-primary text-light">
               <tr>
                 <th scope="col">#ID</th>
                 <th scope="col">PRODUCT NAME</th>
@@ -61,7 +62,7 @@ export function CartList() {
                 <th scope="col">ACTIONS</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="alert alert-primary">
               {[...state.cart.list].map((item, index) => (
                 <tr key={index}>
                   <th scope="row">{item.id}</th>
@@ -96,7 +97,7 @@ export function CartList() {
         </div>
         <div className="col-3 col-md-2 d-none d-md-block"></div>
       </div>
-
+     </div>
       {/** Cart MODAL */}
       <CartModal />
     </>

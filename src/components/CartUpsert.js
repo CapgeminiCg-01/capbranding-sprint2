@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {
@@ -9,6 +9,7 @@ import {
 export function CartUpsert() {
   const dispatch = useDispatch();
   const history = useHistory();
+  const formEL = useRef();
   const state = useSelector((state) => state);
   console.log(state);
 
@@ -26,8 +27,16 @@ export function CartUpsert() {
     e.preventDefault();
     console.log( productName, quantity);
 
-    // THIS IS REDUX ACTION CALLING
-    dispatch(
+    console.log(formEL);
+    console.log(formEL.current.checkValidity());
+
+      if (formEL.current.checkValidity() === false) {
+        e.preventDefault();
+        e.stopPropagation();
+        formEL.current.classList.add("was-validated");
+      } else {
+    
+      dispatch(
       createCartAction({
         productName,
         quantity
@@ -44,6 +53,7 @@ export function CartUpsert() {
     // reset the form
     setProductName("");
     setQuantity("");
+      }
   };
 
   const updateCart = () => {
@@ -61,6 +71,7 @@ export function CartUpsert() {
   };
 
   return (
+    <div style={{ height: "100vh", backgroundColor: "#d9ecd0" }}>
     <div className="row">
       <div className="col-3 col-md-3 d-none d-md-block"></div>
       <div className="col-12 col-md-6">
@@ -74,24 +85,30 @@ export function CartUpsert() {
         )}
 
 
-        <div className="mb-1">
+        <div className="form-group">
           <input
             type="text"
+            className="form-control"
             value={productName}
             onChange={(e) => updateProductName(e)}
             className="form-control"
             placeholder="Enter productName"
+            minLength="3"
+            maxLength="20"
+            required
           />
         </div>
 
+        <form ref={formEL} class="needs-validation" novalidate>
         
-        <div className="mb-1">
+        <div className="form-group">
           <input
             type="quantity"
+            className="form-control"
             value={quantity}
             onChange={(e) => updateQuantity(e)}
-            className="form-control"
             placeholder="Enter quantity"
+            required
           />
         </div>
 
@@ -113,8 +130,10 @@ export function CartUpsert() {
             />
           )}
         </div>
+        </form>
       </div>
       <div className="col-3 col-md-3  d-none d-md-block"></div>
     </div>
+  </div>
   );
 }

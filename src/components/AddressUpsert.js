@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {
@@ -9,6 +9,8 @@ import {
 export function AddressUpsert() {
   const dispatch = useDispatch();
   const history = useHistory();
+  const formEL = useRef();
+
   const state = useSelector((state) => state);
   console.log(state);
 
@@ -30,6 +32,16 @@ export function AddressUpsert() {
   const addAddress = (e) => {
     e.preventDefault();
     console.log(addressLine, city, states, country, pincode);
+    console.log(formEL);
+    console.log(formEL.current.checkValidity());
+
+      if (formEL.current.checkValidity() === false) {
+        e.preventDefault();
+        e.stopPropagation();
+        formEL.current.classList.add("was-validated");
+      } else {
+
+
 
     // THIS IS REDUX ACTION CALLING
     dispatch(
@@ -55,6 +67,7 @@ export function AddressUpsert() {
     setState("");
     setCountry("");
     setPincode("");
+      }
   };
 
   const updateAddress = () => {
@@ -78,6 +91,8 @@ export function AddressUpsert() {
   };
 
   return (
+    <div style={{ height: "100vh", backgroundColor: "#d9ecd0" }}>
+
     <div className="row">
       <div className="col-3 col-md-3 d-none d-md-block"></div>
       <div className="col-12 col-md-6">
@@ -90,59 +105,75 @@ export function AddressUpsert() {
           <div className="alert alert-success">Opeation Success</div>
         )}
 
-        <div className="mb-1">
+       <form ref={formEL} class="needs-validation" novalidate>
+
+        <div className="form-group">
           <input
             type="text"
+            className="form-control"
             value={addressLine}
             onChange={(e) => updateAddressLine(e)}
-            className="form-control"
             placeholder="Enter address"
+            minLength="3"
+            maxLength="50"
+            required
           />
         </div>
 
-        <div className="mb-1">
+        <div className="form-group">
           <input
             type="text"
+            className="form-control"
             value={city}
             onChange={(e) => updateCity(e)}
-            className="form-control"
             placeholder="Enter city"
+            minLength="3"
+            maxLength="10"
+            required
           />
         </div>
 
-        <div className="mb-1">
+        <div className="form-group">
           <input
             type="text"
+            className="form-control"
             value={states}
             onChange={(e) => updateState(e)}
-            className="form-control"
             placeholder="Enter states"
+            minLength="3"
+            maxLength="10"
+            required
           />
         </div>
 
-        <div className="mb-1">
+        <div className="form-group">
           <input
             type="text"
+            className="form-control"
             value={country}
             onChange={(e) => updateCountry(e)}
-            className="form-control"
             placeholder="Enter country"
+            minLength="3"
+            maxLength="10"
+            required
           />
         </div>
 
         
-        <div className="mb-1">
+        <div className="form-group">
           <input
             type="pincode"
+            className="form-control"
             value={pincode}
             onChange={(e) => updatePincode(e)}
-            className="form-control"
             placeholder="Enter pincode"
+            pattern="^{1,10}$"
+            required
           />
         </div>
 
 
-        <div className="mb-1">
+        <div className="form-group">
           {state.address.refadd.id ? (
             <input
               type="button"
@@ -159,8 +190,11 @@ export function AddressUpsert() {
             />
           )}
         </div>
+        </form>
       </div>
+    
       <div className="col-3 col-md-3  d-none d-md-block"></div>
     </div>
+  </div>
   );
 }

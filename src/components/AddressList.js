@@ -43,6 +43,7 @@ export function AddressList() {
 
   return (
     <>
+    <div style={{ height: "100vh", backgroundColor: "#d9ecd0" }}>
       <div className="row">
         <div className="col-3 col-md-2 d-none d-md-block"></div>
         <div className="col-12 col-md-8">
@@ -53,7 +54,7 @@ export function AddressList() {
           )}
 
           <table className="table">
-            <thead className="thead-dark">
+            <thead className="bg-primary text-light">
               <tr>
                 <th scope="col">#ID</th>
                 <th scope="col">ADDRESS LINE</th>
@@ -64,7 +65,7 @@ export function AddressList() {
                 <th scope="col">Actions</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="alert alert-primary">
               {[...state.address.list].map((item, index) => (
                 <tr key={index}>
                   <th scope="row">{item.id}</th>
@@ -102,6 +103,7 @@ export function AddressList() {
         </div>
         <div className="col-3 col-md-2 d-none d-md-block"></div>
       </div>
+    </div>
 
       {/** Address MODAL */}
       <AddressModal />
