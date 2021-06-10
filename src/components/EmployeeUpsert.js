@@ -30,10 +30,7 @@ export function EmployeeUpsert() {
   const addEmployee = (e) => {
     e.preventDefault();
     console.log(firstName, lastName, email, mobileNumber, gender);
-    
-  
 
-  
     // THIS IS REDUX ACTION CALLING
     dispatch(
       createEmployeeAction({
