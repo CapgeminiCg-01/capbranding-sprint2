@@ -1,12 +1,12 @@
 import logo from "./logo.svg";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import { AddressUpsert } from "../components/AddressUpsert";
-import { AddressList } from "../components/AddressList";
+import { AddressUpsert } from "./components/AddressUpsert";
+import { AddressList } from "./components/AddressList";
 import { Nav, Navbar } from "react-bootstrap";
-import { AppNavBar } from "../common/AppNavBar";
+import { AppNavBar } from "./common/AppNavBar";
 
-export function Address() {
+function App() {
   return (
     <Router>
       <AppNavBar />

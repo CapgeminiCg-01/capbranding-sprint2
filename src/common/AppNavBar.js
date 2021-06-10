@@ -18,6 +18,21 @@ export function AppNavBar() {
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>
+
+      <Navbar.Brand as={Link} to="/">
+        CMS APP
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="ml-auto">
+          <Nav.Link as={Link} to="/create-cart">
+            Add Product
+          </Nav.Link>
+          <Nav.Link as={Link} to="/list-cart">
+            My Cart
+          </Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
     </Navbar>
   );
 }

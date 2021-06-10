@@ -4,9 +4,11 @@ import { createStore } from "redux";
 import thunk from "redux-thunk";
 
 import { AddressReducer } from "./AddressReducer";
+import { CartReducer } from "./CartReducer";
 
 const rootReducer = combineReducers({
   address: AddressReducer,
+  cart : CartReducer,
   // depart : DepartRducer,
   //vechil: VechuileReucer
 });
