@@ -38,7 +38,7 @@ function App() {
           style={{
             height: "100vh",
             fontSize: "50px",
-            backgroundColor: "#b2ebf2",
+            backgroundColor: "#fff9c4",
           }}
         >
           <div className="col d-flex justify-content-center align-items-center" >
