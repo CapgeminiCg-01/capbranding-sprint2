@@ -33,6 +33,7 @@ export function CartUpsert() {
       if (formEL.current.checkValidity() === false) {
         e.preventDefault();
         e.stopPropagation();
+        alert("Invalid Inputs");
         formEL.current.classList.add("was-validated");
       } else {
     

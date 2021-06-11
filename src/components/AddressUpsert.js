@@ -38,6 +38,7 @@ export function AddressUpsert() {
       if (formEL.current.checkValidity() === false) {
         e.preventDefault();
         e.stopPropagation();
+        alert("Invalid Inputs");
         formEL.current.classList.add("was-validated");
       } else {
 
@@ -130,7 +131,7 @@ export function AddressUpsert() {
             placeholder="Enter city"
             minLength="3"
             maxLength="10"
-            pattern="^([A-Z a-z] {3,10})$"
+            pattern="^([A-Z a-z] {3-10})$"
             required
           />
         </div>
