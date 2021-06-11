@@ -117,7 +117,7 @@ export function AddressUpsert() {
             placeholder="Enter address"
             minLength="10"
             maxLength="50"
-            pattern="^([A-Za-z0-9'\.\-\s\,] {10,50})$"
+            pattern="^([A-Za-z0-9'\.\-\s\,] {10-50})$"
             required
           />
         </div>
