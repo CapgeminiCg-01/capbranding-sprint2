@@ -114,8 +114,9 @@ export function AddressUpsert() {
             value={addressLine}
             onChange={(e) => updateAddressLine(e)}
             placeholder="Enter address"
-            minLength="3"
+            minLength="10"
             maxLength="50"
+            pattern="^([A-Za-z0-9'\.\-\s\,] {10,50})$"
             required
           />
         </div>
@@ -129,6 +130,7 @@ export function AddressUpsert() {
             placeholder="Enter city"
             minLength="3"
             maxLength="10"
+            pattern="^([A-Z a-z] {3,10})$"
             required
           />
         </div>
@@ -142,6 +144,7 @@ export function AddressUpsert() {
             placeholder="Enter states"
             minLength="3"
             maxLength="10"
+            pattern="^([A-Z a-z] {3-10})$"
             required
           />
         </div>
@@ -155,6 +158,7 @@ export function AddressUpsert() {
             placeholder="Enter country"
             minLength="3"
             maxLength="10"
+            pattern="^([A-Z a-z] {3-10})$"
             required
           />
         </div>
@@ -167,7 +171,7 @@ export function AddressUpsert() {
             value={pincode}
             onChange={(e) => updatePincode(e)}
             placeholder="Enter pincode"
-            pattern="^{1,10}$"
+            pattern="^([0-9]{6}$)"
             required
           />
         </div>

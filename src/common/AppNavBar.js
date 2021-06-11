@@ -6,7 +6,8 @@ export function AppNavBar() {
     <container-fluid>
     <Navbar sticky ="top" bg="danger" expand="lg" variant="dark">
       
-      <Navbar.Brand as={Link} to="/">HOME
+      <Navbar.Brand as={Link} to="/">
+       HOME
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
