@@ -1,7 +1,6 @@
 import logo from "./logo.svg";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import image from "./Images/Image1.jpeg";
 import { Nav, Navbar } from "react-bootstrap";
 import { AppNavBar } from "./common/AppNavBar";
 import { AddressUpsert } from "./components/AddressUpsert";
@@ -43,9 +42,9 @@ function App() {
           }}
         >
           <div className="col d-flex justify-content-center align-items-center" >
-           <img src= {"image"} alt=""/>
+           <img src= {"./Image.jpeg"} alt=""/>
             <Route exact path="/">
-             <h1 class="text-dark" > Welcome To CapBrandingStore </h1>
+             <h1 class="text-dark" className = "ml-5"> Welcome To CapBrandingStore </h1>
             </Route>
             </div>
         </div>
